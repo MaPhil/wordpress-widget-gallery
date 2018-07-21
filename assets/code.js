@@ -1,16 +1,3 @@
-/*function SubForm(e){
-    e.preventDefault();
-    var url=$(this).closest('form').attr('action'),
-    data=$(this).closest('form').serialize();
-    $.ajax({
-        url:url,
-        type:'post',
-        data:data,
-        success:function(){
-           //whatever you wanna do after the form is successfully submitted
-       }
-   });
-}*/
 (function($){
     $(document).ready(function(){
         for(var key in galleries){
