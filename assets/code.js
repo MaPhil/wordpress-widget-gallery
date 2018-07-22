@@ -4,7 +4,7 @@
             if(galleries.hasOwnProperty(key)){
                 var count =1;
                 for(var k in galleries[key])if(galleries[key].hasOwnProperty(k))count++;
-                if(count>4){
+                if((count*174)>$('.gallery-image-holder').width()){
                     $('#gallery_'+key+' .gallery-image-holder').css({
                         'resize': 'vertical',
                         'height': '250px'
