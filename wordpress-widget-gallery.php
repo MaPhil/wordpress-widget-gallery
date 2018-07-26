@@ -199,6 +199,7 @@ if( ! class_exists('WordpressWidgetGallery')){
 		function enqueue($hook) {
 		// enqueue all our scripts
 			if('toplevel_page_wordpress_widget_plugin' != $hook) return;
+			wp_enqueue_media();
 			wp_enqueue_style( 'wordpress-widget-gallery', plugins_url( '/assets/style.css', __FILE__ ) );
 			wp_enqueue_script( 'wordpress-widget-gallery', plugins_url( '/assets/code.js', __FILE__ ) );
 		}
