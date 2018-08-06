@@ -136,7 +136,7 @@
                     type:'post',
                     data:'action=upd_image&g_id='+ids[0]+'&i_id='+ids[1]+'&'+data,
                     success:function(){
-                        //whatever you wanna do after the form is successfully submitted
+                        location.reload();
                     }
                 });
             });
