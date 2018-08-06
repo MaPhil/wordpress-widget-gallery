@@ -121,8 +121,9 @@
             var ids = $(this).attr('id').split('&');
             ids[0] = ids[0].replace('i_','');
             ids[1] = ids[1].replace('g_','');
+
             open_wgp_modal();
-            var t = galleries[ids[0]][ids[1]];
+            var t = galleries[ids[1]][ids[0]];
             $('#change_image_entry textarea[name="change_image_entry_caption"]').val(t.caption);
             $('#change_image_entry textarea[name="change_image_entry_sub_caption"]').val(t.sub_caption);
             $('#change_image_entry input[name="change_image_entry_url"]').val(t.url);
@@ -130,11 +131,10 @@
                 e.preventDefault();
                 var url=$(this).closest('form').attr('action'),
                 data=$(this).closest('form').serialize();
-                console.log(data);
                 $.ajax({
                     url:url,
                     type:'post',
-                    data:'action=upd_image&g_id='+ids[0]+'&i_id='+ids[1]+'&'+data,
+                    data:'action=upd_image&g_id='+ids[1]+'&i_id='+ids[0]+'&'+data,
                     success:function(){
                         location.reload();
                     }
