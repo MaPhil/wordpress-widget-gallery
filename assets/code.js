@@ -127,14 +127,15 @@
             $('#change_image_entry textarea[name="change_image_entry_caption"]').val(t.caption);
             $('#change_image_entry textarea[name="change_image_entry_sub_caption"]').val(t.sub_caption);
             $('#change_image_entry input[name="change_image_entry_url"]').val(t.url);
-            $('#change_image_entry').submit(function(e){
+            $('#change_image_entry').on('submit',function(e){
                 e.preventDefault();
                 var url=$(this).closest('form').attr('action'),
                 data=$(this).closest('form').serialize();
+                var dataToSend = 'action=upd_image&g_id='+ids[1]+'&i_id='+ids[0]+'&'+data;
                 $.ajax({
                     url:url,
                     type:'post',
-                    data:'action=upd_image&g_id='+ids[1]+'&i_id='+ids[0]+'&'+data,
+                    data:dataToSend,
                     success:function(){
                         location.reload();
                     }
@@ -143,10 +144,12 @@
         });
         document.getElementsByClassName("wgp-close")[0].onclick = function() {
             modal.style.display = "none";
+            $('#change_image_entry').unbind('submit');
         }
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                 $('#change_image_entry').unbind('submit');
             }
         }
       
